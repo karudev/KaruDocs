@@ -81,7 +81,11 @@ class LoginController extends Controller
               $token = new UsernamePasswordToken($account, $account->getPassword(), 'secured_area', $account->getRoles());
               // On passe le token créé au service security context afin que l'utilisateur soit authentifié
               $this->get('security.context')->setToken($token);
-            
+          
+              $session = $this->getRequest()->getSession(); 
+              //print_r($token); die();
+              $session->set('_security_secured_area', serialize($token));
+           	
             return $this->redirect($this->generateUrl('_account_home'));
             
             }
