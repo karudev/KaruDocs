@@ -3,3 +3,5 @@ doc_index:
     type:     annotation
     prefix:   /
 
+_doc_index:
+    resource: "@DocIndexBundle/Resources/config/routing.yml"
