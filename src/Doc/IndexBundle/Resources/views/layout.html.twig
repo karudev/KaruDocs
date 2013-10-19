@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="{{asset('bundles/docindex/bootstrap/assets/ico/favicon.png')}}">
+
+    <title>KaruDocs : Création et gestion de documents</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{asset('bundles/docindex/bootstrap/dist/css/bootstrap.css')}}" rel="stylesheet">
+   
+    <!-- Custom styles for this template -->
+    <link href="{{asset('bundles/docindex/css/base.css')}}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="{{asset('bundles/docindex/bootstrap/assets/js/html5shiv.js')}}"></script>
+      <script src="{{asset('bundles/docindex/bootstrap/assets/js/respond.min.js')}}"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">KaruDocs</a>
+        </div>
+        <div class="collapse navbar-collapse">
+         <ul class="nav navbar-nav">
+           {% if app.user %} 
+             <li><a href="{{path('_account_profil')}}">Profil</a></li> 
+             <li><a href="{{path('_account_logout')}}">Se déconnecter</a></li> 
+           {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="base">
+       {% block contain %}
+       {% endblock %}
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{asset('bundles/docindex/bootstrap/assets/js/jquery.js')}}"></script>
+    <script src="{{asset('bundles/docindex/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    {% block js_footer %}
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,22 @@
+_login:
+    pattern:  /account/login
+    defaults: { _controller: DocIndexBundle:Login:Login }
+    
+_account_logout:
+    pattern:  /account/logout
+    defaults: { _controller: DocIndexBundle:Login:Logout }  
+    
+_logincheck:
+    pattern:  /account/logincheck
+    
+_inscription:
+    pattern:  /inscription
+    defaults: { _controller: DocIndexBundle:Login:Inscription }
+    
+_account_home:
+    pattern:  /account/home
+    defaults: { _controller: DocIndexBundle:Home:Index }
+    
+_account_profil:
+    pattern:  /account/profil
+    defaults: { _controller: DocIndexBundle:Profil:Index }

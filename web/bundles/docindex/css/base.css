@@ -1,0 +1,19 @@
+body {
+  padding-top: 50px;
+}
+.base {
+  padding: 40px 15px;
+  /*text-align: center;*/
+}
+
+.inscription{
+margin: 0 auto;
+max-width:370px;
+margin-top:50px;
+}
+.inscription input{
+    margin-bottom: 15px; 
+}
+.form-control{
+    margin-bottom:15px; 
+}

@@ -1,0 +1,42 @@
+security:
+    encoders:
+       Doc\IndexBundle\Entity\Account:
+           algorithm: sha512
+           encode-as-base64: true
+           iterations: 10
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+         administrators:
+            entity: { class: DocIndexBundle:Account, property: username }
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login:
+            pattern:  ^/account/login$
+            security: false
+
+        secured_area:
+            pattern:    ^/account
+            anonymous: ~
+            form_login:
+              
+                check_path: /account/logincheck
+                login_path: /account/login
+                default_target_path: /account/home
+            logout:
+                path:   /account/logout
+                target: /account/login
+            #anonymous: ~
+            #http_basic:
+            #    realm: "Secured Demo Area"
+
+    access_control:
+         - { path: ^/account ,roles: ROLE_USER, requires_channel: http }
+        #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }

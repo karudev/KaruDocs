@@ -1,0 +1,5 @@
+doc_index:
+    resource: "@DocIndexBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
