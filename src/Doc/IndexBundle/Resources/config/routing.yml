@@ -20,3 +20,24 @@ _account_home:
 _account_profil:
     pattern:  /account/profil
     defaults: { _controller: DocIndexBundle:Profil:Index }
+    
+_account_lettre:
+    pattern:  /account/lettre
+    defaults: { _controller: DocIndexBundle:Lettre:Index }
+
+    
+_account_contact:
+    pattern:  /account/contact
+    defaults: { _controller: DocIndexBundle:Contact:Index }
+    
+_account_contact_show:
+    pattern:  /account/contact/show
+    defaults: { _controller: DocIndexBundle:Contact:Show }
+    
+_account_contact_form:
+    pattern:  /account/contact/form/{contact_id}
+    defaults: { _controller: DocIndexBundle:Contact:Form, contact_id : null }
+    
+_account_contact_del:
+    pattern:  /account/contact/del/{contact_id}
+    defaults: { _controller: DocIndexBundle:Contact:Del}

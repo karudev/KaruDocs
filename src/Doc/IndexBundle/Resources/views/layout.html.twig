@@ -35,8 +35,16 @@
           <a class="navbar-brand" href="#">KaruDocs</a>
         </div>
         <div class="collapse navbar-collapse">
+            
          <ul class="nav navbar-nav">
            {% if app.user %} 
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documents <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{path('_account_lettre')}}">Lettre vierge</a></li>
+                </ul>
+             </li>
+             <li><a href="{{path('_account_contact')}}">Contacts</a></li> 
              <li><a href="{{path('_account_profil')}}">Profil</a></li> 
              <li><a href="{{path('_account_logout')}}">Se déconnecter</a></li> 
            {% endif %}

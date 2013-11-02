@@ -1,0 +1,30 @@
+<table class="table">
+    <thead><tr>
+            <th>Nom</th>
+            <th>Cp</th>
+            <th>Ville</th>
+            <th>Email</th>
+            <th>Fixe/Portable</th>
+            <th>Organisation</th>
+            <th>Site</th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for contact in contacts %}
+             <tr>
+                <td>{{contact.firstname}} {{contact.lastname}}</td>
+                <td>{{contact.cp}}</td>
+                <td>{{contact.city}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.fixe}} / {{contact.phone}}</td>
+                <td>{{contact.OrganisationName}}</td>
+                <td>{{contact.website}}</td>
+                <td>
+                    <a class="edit" data-url="{{path('_account_contact_form', {'contact_id' :  contact.id} )}}" href="javascript:void(0);" data-toggle="modal" data-target="#modal_id">Modifier</a> | 
+                    <a class="del" data-url="{{path('_account_contact_del', {'contact_id' :  contact.id} )}}" href="javascript:void(0);" >Supprimer</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>

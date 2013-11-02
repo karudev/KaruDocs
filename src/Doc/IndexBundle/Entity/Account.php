@@ -128,6 +128,9 @@ class Account implements UserInterface {
      */
     protected $country;
 
+    public function __toString() {
+        return $this->firstname.' '.$this->lastname;
+    }
     /**
      * Get username
      *

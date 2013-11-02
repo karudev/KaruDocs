@@ -1,0 +1,23 @@
+{% extends "DocIndexBundle::layout.html.twig" %}
+{% block contain %}
+<h3>Vos contacts</h3>
+<div><button id="add" data-url="{{path('_account_contact_form')}}" data-toggle="modal" data-target="#modal_id" class="btn btn-default">Créer un contact</button></div>
+
+<div>
+<div id="show" class="table-responsive">
+  {{render(controller('DocIndexBundle:Contact:Show'))}}
+</div>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modal_id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      {{render(controller('DocIndexBundle:Contact:Form'))}}   
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% endblock %}
+{% block js_footer %}
+<script src="{{asset('bundles/docindex/js/contact.js')}}"></script>
+{% endblock %}
