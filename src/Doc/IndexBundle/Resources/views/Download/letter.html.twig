@@ -1,0 +1,14 @@
+<p >
+{{letter.accountId.firstname}} {{letter.accountId.lastName}}<br/>
+{{letter.accountId.cp}}, {{letter.accountId.city}}
+</p>
+<p style="text-align: right">
+{{letter.receiverId.organisationName}}<br/>
+{{letter.receiverId.address}}<br/>
+{{letter.receiverId.cp}}, {{letter.receiverId.city}}
+</p>
+<p style="margin-right: 50px;text-align: right">Le {{letter.dateCreated.timestamp|date('d F Y')}}</p>
+<p style="margin-top:50px;">Objet : <b>{{letter.object}}</b></p>
+<p>
+{{letter.text|nl2br}}
+</p>

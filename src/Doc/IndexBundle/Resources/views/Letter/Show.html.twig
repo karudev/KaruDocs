@@ -1,0 +1,26 @@
+<table class="table">
+    <thead><tr>
+            <th>Objet</th>
+            <th>Date</th>
+            <th>Destinataire</th>
+            <th>Texte</th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for letter in letters %}
+             <tr>
+                <td>{{letter.object}}</td>
+                <td>{{letter.dateCreated.timestamp|date('d/m/Y')}}</td>
+                <td>{{letter.receiverId}}</td>
+                <td>{{letter.text}}</td>
+                <td>
+                    <div><a target="_blank" href="{{(path('_account_download_letter',{'letter' : letter.id }))}}">Télécharger</a></div>
+                    <div><a class="edit" data-url="{{path('_account_letter_form', {'letter_id' :  letter.id} )}}" href="javascript:void(0);" data-toggle="modal" data-target="#modal_id">Modifier</a></div> 
+                    <div><a class="del" data-url="{{path('_account_letter_del', {'letter_id' :  letter.id} )}}" href="javascript:void(0);" >Supprimer</a></div>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>

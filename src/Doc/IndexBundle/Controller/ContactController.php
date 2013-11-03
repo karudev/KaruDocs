@@ -31,17 +31,10 @@ class ContactController extends Controller {
      * @Template()
      */
     public function showAction() {
-        $cache = new Cache();
-        $cacheId = 'contact_show';
-        if($cache->getDriver()->contains($cacheId)){
-            $contacts = $cache->getDriver()->fetch($cacheId);  
-        }else{
-            $em = $this->getDoctrine()->getManager();
-            $contacts = $em->getRepository('DocIndexBundle:Contact')->findBy(['accountId' => $this->getUser()->getId()], ['lastname' => 'desc']);
-            $cache->getDriver()->save($cacheId, $contacts);  
-        }
-       
-       
+        
+        $em = $this->getDoctrine()->getManager();
+        $contacts = $em->getRepository('DocIndexBundle:Contact')->findBy(['accountId' => $this->getUser()->getId()], ['lastname' => 'desc']);
+      
         return ['contacts' => $contacts];
     }
 
@@ -80,7 +73,7 @@ class ContactController extends Controller {
     public function delAction($contact_id) {
         $contact_id = (int) $contact_id;
         if ($contact_id > 0) {
-            $this->getDoctrine()->getManager()->getConnection()->delete('contact', ['contact_id' => (int) $contact_id]);
+            $this->getDoctrine()->getManager()->getConnection()->delete('contact', ['contact_id' => $contact_id]);
             return $this->forward('DocIndexBundle:Contact:Show');
         } else
             return new JsonResponse(false);

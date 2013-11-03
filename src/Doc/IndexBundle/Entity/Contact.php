@@ -126,6 +126,9 @@ class Contact
     private $country;
 
 
+    public function __toString() {
+        return $this->firstname.' '.$this->lastname.($this->organisationName !=null ? ' ('.$this->organisationName .')':'');
+    }
     /**
      * Get id
      *

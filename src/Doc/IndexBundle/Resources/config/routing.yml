@@ -21,11 +21,22 @@ _account_profil:
     pattern:  /account/profil
     defaults: { _controller: DocIndexBundle:Profil:Index }
     
-_account_lettre:
-    pattern:  /account/lettre
-    defaults: { _controller: DocIndexBundle:Lettre:Index }
+_account_letter:
+    pattern:  /account/letter
+    defaults: { _controller: DocIndexBundle:Letter:Index }
 
-    
+_account_letter_form:
+    pattern:  /account/letter/form/{letter_id}
+    defaults: { _controller: DocIndexBundle:Letter:Form, letter_id : null }
+ 
+_account_letter_show:
+    pattern:  /account/letter/show
+    defaults: { _controller: DocIndexBundle:Letter:Show }
+
+_account_letter_del:
+    pattern:  /account/letter/del/{letter_id}
+    defaults: { _controller: DocIndexBundle:Letter:Del}
+
 _account_contact:
     pattern:  /account/contact
     defaults: { _controller: DocIndexBundle:Contact:Index }
@@ -41,3 +52,8 @@ _account_contact_form:
 _account_contact_del:
     pattern:  /account/contact/del/{contact_id}
     defaults: { _controller: DocIndexBundle:Contact:Del}
+    
+_account_download_letter:
+    pattern:  /account/download/letter/{letter}
+    defaults: { _controller: DocIndexBundle:Download:Letter}
+    
